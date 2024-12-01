@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WORMASRS</title>
+    <script src="/static/chart.js"></script>
+    <script src="/static/socket.io.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.5;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .arduino-section {
+            margin-bottom: 40px;
+        }
+
+        .arduino-section h2 {
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .data-display {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+            padding: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        .data-display span {
+            margin: 0 10px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer; /* 클릭 가능한 커서 표시 */
+        }
+
+        .chart-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        canvas {
+            flex: 1 1 calc(20% - 20px);
+            max-width: 300px;
+            max-height: 150px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .hidden {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- Arduino 1 -->
+    <div id="arduino1" class="arduino-section">
+        <h2>Arduino 1</h2>
+        <div class="data-display">
+            <span data-chart="arduino1-ph-chart">PH: <span id="arduino1-ph">N/A</span></span>
+            <span data-chart="arduino1-light-chart">Light: <span id="arduino1-light">N/A</span></span>
+            <span data-chart="arduino1-soil-chart">Soil: <span id="arduino1-soil">N/A</span></span>
+            <span data-chart="arduino1-humidity-chart">Humidity: <span id="arduino1-humidity">N/A</span></span>
+            <span data-chart="arduino1-temperature-chart">Temperature: <span id="arduino1-temperature">N/A</span></span>
+        </div>
+        <div class="chart-container">
+            <canvas id="arduino1-ph-chart"></canvas>
+            <canvas id="arduino1-light-chart"></canvas>
+            <canvas id="arduino1-soil-chart"></canvas>
+            <canvas id="arduino1-humidity-chart"></canvas>
+            <canvas id="arduino1-temperature-chart"></canvas>
+        </div>
+    </div>
+
+    <!-- Arduino 2 -->
+    <div id="arduino2" class="arduino-section">
+        <h2>Arduino 2</h2>
+        <div class="data-display">
+            <span data-chart="arduino2-ph-chart">PH: <span id="arduino2-ph">N/A</span></span>
+            <span data-chart="arduino2-light-chart">Light: <span id="arduino2-light">N/A</span></span>
+            <span data-chart="arduino2-soil-chart">Soil: <span id="arduino2-soil">N/A</span></span>
+            <span data-chart="arduino2-humidity-chart">Humidity: <span id="arduino2-humidity">N/A</span></span>
+            <span data-chart="arduino2-temperature-chart">Temperature: <span id="arduino2-temperature">N/A</span></span>
+        </div>
+        <div class="chart-container">
+            <canvas id="arduino2-ph-chart"></canvas>
+            <canvas id="arduino2-light-chart"></canvas>
+            <canvas id="arduino2-soil-chart"></canvas>
+            <canvas id="arduino2-humidity-chart"></canvas>
+            <canvas id="arduino2-temperature-chart"></canvas>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // 그래프 숨기기/표시 기능 추가
+            document.querySelectorAll('.data-display span').forEach(span => {
+                span.addEventListener('click', (event) => {
+                    const chartId = event.target.dataset.chart; // 클릭된 span의 data-chart 속성값 가져오기
+                    const chartElement = document.getElementById(chartId);
+                    if (chartElement) {
+                        chartElement.classList.toggle('hidden'); // 'hidden' 클래스 토글
+                    }
+                });
+            });
+        });
+    </script>
+    <script src="/static/app.js"></script>
+</body>
+</html>
