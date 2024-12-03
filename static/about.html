@@ -42,39 +42,6 @@
             text-decoration: none;
         }
 
-        .data-display {
-            display: flex;
-            justify-content: space-around;
-            padding: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            background-color: #f9f9f9;
-            margin-bottom: 20px;
-        }
-
-        .data-display span {
-            margin: 0 10px;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .chart-container {
-            display: flex;
-            justify-content: space-between;
-            gap: 10px;
-            overflow-x: auto;
-        }
-
-        canvas {
-            flex: 0 0 calc(20% - 10px);
-            max-width: 300px;
-            max-height: 150px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            background-color: #fff;
-        }
-
         .footer {
             background-color: #4B544E;
             color: #ffffff;
@@ -136,27 +103,19 @@
             <ul class="nav nav-pills general-menu" style="margin: 0 150px; padding: 15px 0;">
                 <li style="margin-right: 30px;"><a href="/about">About WORMARS</a></li>
                 <li style="margin-right: 30px;"><a href="/member">WORMARS Member</a></li>
-                <li style="margin-right: 30px;"><a href="/contact">Contact</a></li>
+                <li style="margin-right: 30px;"><a href="https://kau.ac.kr">Contact</a></li>
             </ul>
         </div>
     </div>
-    <!-- Arduino 1 -->
-    <div id="arduino1"  style="width: 1300px; margin: 0 auto; margin-bottom:50px; box-sizing: border-box;">
-        <h2 style="margin-bottom: 40px; text-align: center;">배양통 1 </h2>
-        <div style="display: flex; justify-content: space-around; margin-bottom: 40px; padding: 10px 0; border: 1px solid #ccc; border-radius: 5px;">
-            <span data-chart="arduino1-ph-chart" style="margin: 0 10px; font-size: 16px; font-weight: bold; cursor: pointer;">PH: <span id="arduino1-ph">N/A</span></span>
-            <span data-chart="arduino1-light-chart" style="margin: 0 10px; font-size: 16px; font-weight: bold; cursor: pointer;">Light: <span id="arduino1-light">N/A</span></span>
-            <span data-chart="arduino1-soil-chart" style="margin: 0 10px; font-size: 16px; font-weight: bold; cursor: pointer;">Soil: <span id="arduino1-soil">N/A</span></span>
-            <span data-chart="arduino1-humidity-chart" style="margin: 0 10px; font-size: 16px; font-weight: bold; cursor: pointer;">Humidity: <span id="arduino1-humidity">N/A</span></span>
-            <span data-chart="arduino1-temperature-chart" style="margin: 0 10px; font-size: 16px; font-weight: bold; cursor: pointer;">Temperature: <span id="arduino1-temperature">N/A</span></span>
-        </div>
-        <div style="display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: auto auto; gap: 10px; justify-items: center; max-width: 1300px; margin: 0 auto; overflow-x: auto;">
-            <canvas id="arduino1-ph-chart" style="max-width: 350px; max-height: 200px; border: 1px solid #ddd; border-radius: 5px; background-color: #fff; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);"></canvas>
-            <canvas id="arduino1-light-chart" style="max-width: 350px; max-height: 200px; border: 1px solid #ddd; border-radius: 5px; background-color: #fff; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);"></canvas>
-            <canvas id="arduino1-soil-chart" style="max-width: 350px; max-height: 200px; border: 1px solid #ddd; border-radius: 5px; background-color: #fff; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);"></canvas>
-            <canvas id="arduino1-humidity-chart" style="max-width: 350px; max-height: 200px; border: 1px solid #ddd; border-radius: 5px; background-color: #fff; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);"></canvas>
-            <canvas id="arduino1-temperature-chart" style="max-width: 350px; max-height: 200px; border: 1px solid #ddd; border-radius: 5px; background-color: #fff; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);"></canvas>
-        </div>        
+    <div id="about"  style="width: 1300px; margin: 0 auto; margin-bottom:50px;">
+        <img src="/static/asset/slide/slide_png (1).png" alt="Slide 1" style="width: 1300px; margin: 10px;">
+        <img src="/static/asset/slide/slide_png (2).png" alt="Slide 2" style="width: 1300px; margin: 10px;">
+        <img src="/static/asset/slide/slide_png (3).png" alt="Slide 3" style="width: 1300px; margin: 10px;">
+        <img src="/static/asset/slide/slide_png (4).png" alt="Slide 4" style="width: 1300px; margin: 10px;">
+        <img src="/static/asset/slide/slide_png (5).png" alt="Slide 5" style="width: 1300px; margin: 10px;">
+        <img src="/static/asset/slide/slide_png (6).png" alt="Slide 6" style="width: 1300px; margin: 10px;">
+        <img src="/static/asset/slide/slide_png (7).png" alt="Slide 7" style="width: 1300px; margin: 10px;">
+        <img src="/static/asset/slide/slide_png (8).png" alt="Slide 8" style="width: 1300px; margin: 10px;">
     </div>
     <div class="footer">
         <div class="footer-first-area" style="margin-bottom: 80px; justify-content: space-between;">
@@ -183,8 +142,8 @@
                 <div class="footer-content">
                     <ul>
                         <li><a class="something" href="/">HOME</a></li>
-                        <li><a class="something" href="/contact">CONTACT</a></li>
-                        <li><a class="something" href="/check">CHECK UP</a></li>
+                        <li><a class="something" href="https://kau.ac.kr">CONTACT</a></li>
+                        <li><a class="something" href="http://college.kau.ac.kr/web/pages/gc64611h.do">CHECK</a></li>
                     </ul>
                 </div>
             </div>

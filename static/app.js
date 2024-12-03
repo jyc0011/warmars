@@ -33,15 +33,6 @@ document.addEventListener("DOMContentLoaded", () => {
             humidity: initializeChart(document.getElementById('arduino1-humidity-chart').getContext('2d'), 'Humidity'),
             temperature: initializeChart(document.getElementById('arduino1-temperature-chart').getContext('2d'), 'Temperature')
         };
-    
-        // Arduino 2 차트 초기화
-        var arduino2Charts = {
-            ph: initializeChart(document.getElementById('arduino2-ph-chart').getContext('2d'), 'PH'),
-            light: initializeChart(document.getElementById('arduino2-light-chart').getContext('2d'), 'Light'),
-            soil: initializeChart(document.getElementById('arduino2-soil-chart').getContext('2d'), 'Soil Moisture'),
-            humidity: initializeChart(document.getElementById('arduino2-humidity-chart').getContext('2d'), 'Humidity'),
-            temperature: initializeChart(document.getElementById('arduino2-temperature-chart').getContext('2d'), 'Temperature')
-        };
 
     socket.on("connect", () => {
         console.log("WebSocket 연결 성공");
@@ -71,25 +62,5 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         }
 
-        // Arduino 2 업데이트
-        if (data.arduino_2) {
-            document.getElementById('arduino2-ph').textContent = data.arduino_2.ph;
-            document.getElementById('arduino2-light').textContent = data.arduino_2.light;
-            document.getElementById('arduino2-soil').textContent = data.arduino_2.soil;
-            document.getElementById('arduino2-humidity').textContent = data.arduino_2.humidity;
-            document.getElementById('arduino2-temperature').textContent = data.arduino_2.temperature;
-
-            // 차트 업데이트
-            Object.keys(arduino2Charts).forEach(key => {
-                let chart = arduino2Charts[key];
-                chart.data.labels.push(new Date().toLocaleTimeString());
-                chart.data.datasets[0].data.push(data.arduino_2[key]);
-                if (chart.data.labels.length > maxDataPoints) {
-                    chart.data.labels.shift();
-                    chart.data.datasets[0].data.shift();
-                }
-                chart.update();
-            });
-        }
     });
 });

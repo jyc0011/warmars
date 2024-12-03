@@ -81,6 +81,15 @@ def broadcast_data():
 def serve_index():
     return send_from_directory(app.static_folder, 'index.html')
 
+@app.route('/about')
+def serve_about():
+    return send_from_directory(app.static_folder, 'about.html')
+
+@app.route('/member')
+def serve_member():
+    return send_from_directory(app.static_folder, 'member.html')
+
+
 # WebSocket 연결
 @socketio.on('connect')
 def handle_connect():
